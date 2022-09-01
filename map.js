@@ -4,7 +4,8 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© OpenStreetMap'
 }).addTo(map);
 
-var polygonS = L.polygon([
+
+let coordinatesS = [
     [52.2007, 20.99639],
     [52.20073, 20.99659],
     [52.20012, 20.99686],
@@ -15,15 +16,21 @@ var polygonS = L.polygon([
     [52.20021, 20.99644],
     [52.20027, 20.99641],
     [52.20029, 20.99658]
-]).addTo(map);
+]
 
-var polygonH = L.polygon([
+var polygonS = L.polygon(coordinatesS).addTo(map);
+
+
+
+let coordinatesH = [
     [52.20063, 20.99616],
     [52.20048, 20.99622],
     [52.20045, 20.99606],
     [52.2006, 20.99599]
-], {color: 'red'}
-).addTo(map);
+]
+
+var polygonH = L.polygon(coordinatesH, {color: 'red'}).addTo(map);
 
 
-polygon.bindPopup("Budynek S")
+polygonS.bindPopup("Budynek S")
+polygonH.bindPopup("Budynek H")
