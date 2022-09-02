@@ -31,6 +31,18 @@ let coordinatesH = [
 
 var polygonH = L.polygon(coordinatesH, {color: 'red'}).addTo(map);
 
-
 polygonS.bindPopup("Budynek S")
+polygonS.on('mouseover', function() {
+    this.openPopup()
+})
+polygonS.on('mouseout', function() {
+    this.closePopup()
+})
 polygonH.bindPopup("Budynek H")
+polygonH.on('mouseover', function() {
+    this.openPopup()
+})
+polygonH.on('mouseout', function() {
+    this.closePopup()
+})
+
