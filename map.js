@@ -46,3 +46,4 @@ polygonH.on('mouseout', function() {
     this.closePopup()
 })
 
+getComputedStyle
