@@ -45,5 +45,3 @@ polygonH.on('mouseover', function() {
 polygonH.on('mouseout', function() {
     this.closePopup()
 })
-
-
