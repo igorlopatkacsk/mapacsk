@@ -4,11 +4,21 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© OpenStreetMap'
 }).addTo(map);
 
+function polygonWithPopup(coordinates, body, color) {
 
+    let polygon =L.polygon(coordinates, {color: color}).addTo(map)
 
+    polygon.bindPopup(body)
+
+    polygon.on('mouseover', function() {
+        this.openPopup()
+    })
+    polygon.on('mouseout', function() {
+        this.closePopup()
+    })
+}
 
 let coordinatesA = [
-
     [52.1985314,20.9981275],
     [52.198543,20.9981943],
     [52.1984836,20.9982221],
@@ -24,50 +34,9 @@ let coordinatesA = [
     [52.1989053,20.9980048],
     [52.1988915,20.9980115],
     [52.1988833,20.9979641],
-    [52.1985314,20.9981275],
-    /** */
-    
-[52.1985314,20.9981275],
-[52.198521,20.9980679],
-[52.1986099,20.9980265],
-[52.1985932,20.9979341],
-[52.1986028,20.9979297],
-[52.1986005,20.9979167],
-[52.1986108,20.9979121],
-[52.198613,20.9979249],
-[52.1986235,20.9979201],
-[52.1986213,20.9979071],
-[52.1986316,20.9979023],
-[52.1986337,20.9979153],
-[52.1986398,20.9979125],
-[52.1986375,20.9978995],
-[52.1986478,20.997895],
-[52.1986501,20.9979077],
-[52.1986605,20.9979029],
-[52.1986583,20.9978897],
-[52.1986686,20.9978852],
-[52.1986708,20.9978981],
-[52.1986762,20.9978955],
-[52.1986739,20.9978827],
-[52.1986843,20.9978782],
-[52.1986865,20.9978907],
-[52.1987343,20.9978684],
-[52.198732,20.9978553],
-[52.1987423,20.9978506],
-[52.1987445,20.9978636],
-[52.198751,20.9978607],
-[52.1987617,20.9979229],
-[52.1987611,20.9979232],
-[52.1987666,20.9979536],
-[52.1988812,20.9979003],
-[52.1988917,20.9979601],
-[52.1988833,20.9979641],
-[52.1985314,20.9981275]
-/** */
-
+    [52.1985314,20.9981275]
 ]
-    var polygonA =L.polygon(coordinatesA).addTo(map);
-    
+
     let coordinatesB = [
     
     [52.198653,20.9992712],
@@ -90,8 +59,7 @@ let coordinatesA = [
     [52.1985127,20.9992734],
     [52.1985226,20.9993305],
     [52.198653,20.9992712]]
-    var polygonB =L.polygon(coordinatesB).addTo(map);
-    
+
     let coordinatesC = [
     
     [52.198653,20.9992712],
@@ -102,7 +70,6 @@ let coordinatesA = [
     [52.1990578,20.9994063],
     [52.1990043,20.9991056],
     [52.198653,20.9992712]]
-    var polygonC =L.polygon(coordinatesC).addTo(map);
     
     let coordinatesD = [
     
@@ -117,7 +84,6 @@ let coordinatesA = [
     [52.1981192,20.9974048],
     [52.1979992,20.9973557],
     [52.1979248,20.9973242]]
-    var polygonD =L.polygon(coordinatesD).addTo(map);
     
     let coordinatesE = [
     
@@ -130,7 +96,6 @@ let coordinatesA = [
     [52.1987266,20.9969278],
     [52.1986746,20.9969793],
     [52.1983625,20.9972853]]
-    var polygonE =L.polygon(coordinatesE).addTo(map);
     
     let coordinatesF = [
     
@@ -155,7 +120,6 @@ let coordinatesA = [
     [52.1979248,20.9973242],
     [52.1979091,20.9973173],
     [52.1978781,20.9975061]]
-    var polygonF =L.polygon(coordinatesF).addTo(map);
     
     let coordinatesG = [
     
@@ -172,7 +136,6 @@ let coordinatesA = [
     [52.1985715,20.9965774],
     [52.1987026,20.9965143],
     [52.1987728,20.9969004]]
-    var polygonG =L.polygon(coordinatesG).addTo(map);
     
     let coordinatesI = [
     
@@ -182,7 +145,6 @@ let coordinatesA = [
     [52.1979127,20.9959372],
     [52.1979809,20.9954184],
     [52.1981105,20.9954637]]
-    var polygonI =L.polygon(coordinatesI).addTo(map);
     
     let coordinatesK = [
     
@@ -203,9 +165,8 @@ let coordinatesA = [
     [52.1986691,20.9943303],
     [52.1986386,20.9943147],
     [52.1986522,20.9942442]]
-    var polygonK =L.polygon(coordinatesK).addTo(map);
     
-    let coordinatesŁ2 = [
+    let coordinatesL2 = [
     
     [52.1987308,20.9969398],
     [52.1987728,20.9969004],
@@ -223,9 +184,8 @@ let coordinatesA = [
     [52.1988545,20.9972704],
     [52.1987973,20.9971156],
     [52.1987308,20.9969398]]
-    var polygonŁ2 =L.polygon(coordinatesŁ2).addTo(map);
     
-    let coordinatesŁ = [
+    let coordinatesL = [
     
     [52.1982413,20.9974547],
     [52.198212,20.9976679],
@@ -236,7 +196,6 @@ let coordinatesA = [
     [52.1983433,20.9975619],
     [52.1982902,20.9974153],
     [52.1982413,20.9974547]]
-    var polygonŁ =L.polygon(coordinatesŁ).addTo(map);
     
     let coordinatesO = [
     
@@ -249,7 +208,6 @@ let coordinatesA = [
     [52.1996523,20.9963636],
     [52.1996803,20.9963504],
     [52.1996109,20.9959491]]
-    var polygonO =L.polygon(coordinatesO).addTo(map);
     
     let coordinatesN = [
     
@@ -280,7 +238,6 @@ let coordinatesA = [
     [52.1982722,20.9949825],
     [52.1982707,20.9949818],
     [52.1982163,20.9949538]]
-    var polygonN =L.polygon(coordinatesN).addTo(map);
     
     let coordinatesPG = [
     
@@ -329,7 +286,6 @@ let coordinatesA = [
     [52.1991172,20.9979643],
     [52.1991263,20.9980133],
     [52.199135,20.9980663]]
-    var polygonPG =L.polygon(coordinatesPG).addTo(map);
     
     let coordinatesR = [
     
@@ -340,7 +296,6 @@ let coordinatesA = [
     [52.1991276,20.9967087],
     [52.1991496,20.9966984],
     [52.1990994,20.996413]]
-    var polygonR =L.polygon(coordinatesR).addTo(map);
     
     let coordinatesS = [
     
@@ -367,7 +322,6 @@ let coordinatesA = [
     [52.2002672,20.9964158],
     [52.2002961,20.9965796],
     [52.2006964,20.9963948]]
-    var polygonS =L.polygon(coordinatesS).addTo(map);
     
     let coordinatesU = [
     
@@ -402,7 +356,6 @@ let coordinatesA = [
     [52.1991808,20.9978953],
     [52.1991763,20.9978976],
     [52.1991748,20.9978893]]
-    var polygonU =L.polygon(coordinatesU).addTo(map);
     
     let coordinatesH = [
     
@@ -416,7 +369,6 @@ let coordinatesA = [
     [52.2006007,20.9959737],
     [52.2006025,20.9959728],
     [52.2006036,20.9959783]]
-    var polygonH =L.polygon(coordinatesH).addTo(map);
     
     let coordinatesPI = [
     [52.1987154,21.0002502],
@@ -430,7 +382,6 @@ let coordinatesA = [
     [52.1986793,21.0003815],
     [52.1986635,21.0002687],
     [52.1987154,21.0002502]]
-    var polygonPI =L.polygon(coordinatesPI).addTo(map);
 
     let coordinatesAG = [
     [52.1991083,20.9985921],
@@ -455,20 +406,25 @@ let coordinatesA = [
     [52.1990672,20.9985665],
     [52.1990747,20.998608],
     [52.1991083,20.9985921]]
-    var polygonAG = L.polygon(coordinatesAG).addTo(map);
 
     
-polygonS.bindPopup("Budynek S")
-polygonS.on('mouseover', function() {
-    this.openPopup()
-})
-polygonS.on('mouseout', function() {
-    this.closePopup()
-})
-polygonH.bindPopup("Budynek H")
-polygonH.on('mouseover', function() {
-    this.openPopup()
-})
-polygonH.on('mouseout', function() {
-    this.closePopup()
-})
+    let A = polygonWithPopup(coordinatesA, "Budynek A", "blue")
+    let B = polygonWithPopup(coordinatesB, "Budynek B", "teal")
+    let C = polygonWithPopup(coordinatesC, "Budynek C", "green")
+    let D = polygonWithPopup(coordinatesD, "Budynek D", "orange")
+    let E = polygonWithPopup(coordinatesE, "Budynek E", "brown")
+    let F = polygonWithPopup(coordinatesF, "Budynek F", "red")
+    let G = polygonWithPopup(coordinatesG, "Budynek G", "teal")
+    let I = polygonWithPopup(coordinatesI, "Budynek I", "purple")
+    let K = polygonWithPopup(coordinatesK, "Budynek K", "green")
+    // let L2 = polygonWithPopup(coordinatesL2, "Budynek L2") 
+    // let L = polygonWithPopup(coordinatesL, "Budynek L")
+    let O = polygonWithPopup(coordinatesO, "Budynek O", "teal")
+    let N = polygonWithPopup(coordinatesN, "Budynek N", "yellow")
+    let PG = polygonWithPopup(coordinatesPG, "Pawilon Główny", "red")
+    let R = polygonWithPopup(coordinatesR, "Budynek R", "brown")
+    let S = polygonWithPopup(coordinatesS, "Budynek S", "orange")
+    let U = polygonWithPopup(coordinatesU, "Budynek U", "orange")
+    let H = polygonWithPopup(coordinatesH, "Budynek H", "red")
+    let PI = polygonWithPopup(coordinatesPI, "Punkt Kancelaryjno-Informacyjny", "blue")
+    let AG = polygonWithPopup(coordinatesAG, "Budynek Administracyjno-Garażowy", "pink")
