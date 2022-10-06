@@ -20,7 +20,7 @@ function polygonWithPopup(coordinates, body, color) {
 }
 
 function newPolygon(coordinates, color) {
-    let polygon = L.polygon(coordinates, {color: color, fillOpacity: 0.1},).addTo(map)
+    let polygon = L.polygon(coordinates, {color: color, fillOpacity: 0.05},).addTo(map)
 }
 
 let coordinatesSzpital = [
@@ -492,7 +492,69 @@ let coordinatesE = [
 
     let szpital = newPolygon(coordinatesSzpital, "blue")
 
-    let A = polygonWithPopup(coordinatesA, "Budynek A", "red")
+
+    var html = `
+    <p></p>
+<summary style="box-sizing: border-box; margin: 0px; padding: 1.7rem 2rem 1.7rem 0px; font-style: inherit; font-variant: inherit; font-weight: bold; font-stretch: inherit; font-size: 1.25rem; line-height: 1.1; font-family: inherit; vertical-align: baseline; cursor: pointer; display: block; color: rgb(0, 82, 165); position: relative;">Budynek&nbsp;A</summary>
+<p></p>
+<table cellspacing="0" class="Table" style="box-sizing: border-box; margin: 0px; padding: 0px; font: inherit; vertical-align: baseline; border-collapse: collapse; border-spacing: 0px;">
+    <tbody style="box-sizing: border-box; margin: 0px; padding: 0px; font: inherit; vertical-align: baseline;">
+        <tr style="box-sizing: border-box; margin: 0px; padding: 0px; font: inherit; vertical-align: baseline;">
+            <td style="box-sizing: border-box; margin: 0px; padding: 0.5rem; font: inherit; vertical-align: baseline; width: 123px;">
+                <p style="box-sizing: border-box; margin: 0px 0px 1em; padding: 0px; font: inherit; vertical-align: baseline;"><span style="box-sizing: border-box; margin: 0px; padding: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 11pt; line-height: inherit; font-family: inherit; vertical-align: baseline;"><strong style="box-sizing: border-box; margin: 0px; padding: 0px; font-style: inherit; font-variant: inherit; font-weight: bold; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; vertical-align: baseline;"><span style="box-sizing: border-box; margin: 0px; padding: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 12pt; line-height: inherit; font-family: inherit; vertical-align: baseline;"><span style="box-sizing: border-box; margin: 0px; padding: 0px; font: inherit; vertical-align: baseline; color: rgb(27, 27, 27);">Parter</span></span></strong></span></p>
+                <p style="box-sizing: border-box; margin: 0px 0px 1em; padding: 0px; font: inherit; vertical-align: baseline;"><span style="box-sizing: border-box; margin: 0px; padding: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 11pt; line-height: inherit; font-family: inherit; vertical-align: baseline;">&nbsp;</span></p>
+            </td>
+            <td style="box-sizing: border-box; margin: 0px; padding: 0.5rem; font: inherit; vertical-align: baseline; width: 482px;">
+                <p style="box-sizing: border-box; margin: 0px 0px 1em; padding: 0px; font: inherit; vertical-align: baseline;"><span style="box-sizing: border-box; margin: 0px; padding: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 11pt; line-height: inherit; font-family: inherit; vertical-align: baseline;"><span style="box-sizing: border-box; margin: 0px; padding: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 12pt; line-height: inherit; font-family: inherit; vertical-align: baseline;"><span style="box-sizing: border-box; margin: 0px; padding: 0px; font: inherit; vertical-align: baseline; color: rgb(27, 27, 27);">Szpitalny Oddział Ratunkowy z Zespołami Wyjazdowymi</span></span></span></p>
+            </td>
+        </tr>
+        <tr style="box-sizing: border-box; margin: 0px; padding: 0px; font: inherit; vertical-align: baseline;">
+            <td style="box-sizing: border-box; margin: 0px; padding: 0.5rem; font: inherit; vertical-align: baseline; width: 123px;">
+                <p style="box-sizing: border-box; margin: 0px 0px 1em; padding: 0px; font: inherit; vertical-align: baseline;"><span style="box-sizing: border-box; margin: 0px; padding: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 11pt; line-height: inherit; font-family: inherit; vertical-align: baseline;"><strong style="box-sizing: border-box; margin: 0px; padding: 0px; font-style: inherit; font-variant: inherit; font-weight: bold; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; vertical-align: baseline;"><span style="box-sizing: border-box; margin: 0px; padding: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 12pt; line-height: inherit; font-family: inherit; vertical-align: baseline;"><span style="box-sizing: border-box; margin: 0px; padding: 0px; font: inherit; vertical-align: baseline; color: rgb(27, 27, 27);">I piętro</span></span></strong></span></p>
+                <p style="box-sizing: border-box; margin: 0px 0px 1em; padding: 0px; font: inherit; vertical-align: baseline;"><span style="box-sizing: border-box; margin: 0px; padding: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 11pt; line-height: inherit; font-family: inherit; vertical-align: baseline;">&nbsp;</span></p>
+            </td>
+            <td style="box-sizing: border-box; margin: 0px; padding: 0.5rem; font: inherit; vertical-align: baseline; width: 482px;">
+                <p style="box-sizing: border-box; margin: 0px 0px 1em; padding: 0px; font: inherit; vertical-align: baseline;"><span style="box-sizing: border-box; margin: 0px; padding: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 11pt; line-height: inherit; font-family: inherit; vertical-align: baseline;"><span style="box-sizing: border-box; margin: 0px; padding: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 12pt; line-height: inherit; font-family: inherit; vertical-align: baseline;">Dział Inżynierii Medycznej</span></span></p>
+            </td>
+        </tr>
+        <tr style="box-sizing: border-box; margin: 0px; padding: 0px; font: inherit; vertical-align: baseline;">
+            <td style="box-sizing: border-box; margin: 0px; padding: 0.5rem; font: inherit; vertical-align: baseline; width: 123px;">
+                <p style="box-sizing: border-box; margin: 0px 0px 1em; padding: 0px; font: inherit; vertical-align: baseline;"><span style="box-sizing: border-box; margin: 0px; padding: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 11pt; line-height: inherit; font-family: inherit; vertical-align: baseline;"><strong style="box-sizing: border-box; margin: 0px; padding: 0px; font-style: inherit; font-variant: inherit; font-weight: bold; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; vertical-align: baseline;"><span style="box-sizing: border-box; margin: 0px; padding: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 12pt; line-height: inherit; font-family: inherit; vertical-align: baseline;"><span style="box-sizing: border-box; margin: 0px; padding: 0px; font: inherit; vertical-align: baseline; color: rgb(27, 27, 27);">II piętro</span></span></strong></span></p>
+                <p style="box-sizing: border-box; margin: 0px 0px 1em; padding: 0px; font: inherit; vertical-align: baseline;"><span style="box-sizing: border-box; margin: 0px; padding: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 11pt; line-height: inherit; font-family: inherit; vertical-align: baseline;">&nbsp;</span></p>
+            </td>
+            <td style="box-sizing: border-box; margin: 0px; padding: 0.5rem; font: inherit; vertical-align: baseline; width: 482px;">
+                <p style="box-sizing: border-box; margin: 0px 0px 1em; padding: 0px; font: inherit; vertical-align: baseline;"><span style="box-sizing: border-box; margin: 0px; padding: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 11pt; line-height: inherit; font-family: inherit; vertical-align: baseline;"><span style="box-sizing: border-box; margin: 0px; padding: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 12pt; line-height: inherit; font-family: inherit; vertical-align: baseline;">Patologia Ciąży</span></span></p>
+            </td>
+        </tr>
+        <tr style="box-sizing: border-box; margin: 0px; padding: 0px; font: inherit; vertical-align: baseline;">
+            <td style="box-sizing: border-box; margin: 0px; padding: 0.5rem; font: inherit; vertical-align: baseline; width: 123px;">
+                <p style="box-sizing: border-box; margin: 0px 0px 1em; padding: 0px; font: inherit; vertical-align: baseline;"><span style="box-sizing: border-box; margin: 0px; padding: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 11pt; line-height: inherit; font-family: inherit; vertical-align: baseline;"><strong style="box-sizing: border-box; margin: 0px; padding: 0px; font-style: inherit; font-variant: inherit; font-weight: bold; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; vertical-align: baseline;"><span style="box-sizing: border-box; margin: 0px; padding: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 12pt; line-height: inherit; font-family: inherit; vertical-align: baseline;"><span style="box-sizing: border-box; margin: 0px; padding: 0px; font: inherit; vertical-align: baseline; color: rgb(27, 27, 27);">III piętro</span></span></strong></span></p>
+            </td>
+            <td style="box-sizing: border-box; margin: 0px; padding: 0.5rem; font: inherit; vertical-align: baseline; width: 482px;">
+                <p style="box-sizing: border-box; margin: 0px 0px 1em; padding: 0px; font: inherit; vertical-align: baseline;"><span style="box-sizing: border-box; margin: 0px; padding: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 11pt; line-height: inherit; font-family: inherit; vertical-align: baseline;"><span style="box-sizing: border-box; margin: 0px; padding: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 12pt; line-height: inherit; font-family: inherit; vertical-align: baseline;"><span style="box-sizing: border-box; margin: 0px; padding: 0px; font: inherit; vertical-align: baseline; color: rgb(27, 27, 27);">Klinika Kardiologii Inwazyjnej</span></span></span></p>
+            </td>
+        </tr>
+        <tr style="box-sizing: border-box; margin: 0px; padding: 0px; font: inherit; vertical-align: baseline;">
+            <td style="box-sizing: border-box; margin: 0px; padding: 0.5rem; font: inherit; vertical-align: baseline; width: 123px;">
+                <p style="box-sizing: border-box; margin: 0px 0px 1em; padding: 0px; font: inherit; vertical-align: baseline;"><span style="box-sizing: border-box; margin: 0px; padding: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 11pt; line-height: inherit; font-family: inherit; vertical-align: baseline;"><strong style="box-sizing: border-box; margin: 0px; padding: 0px; font-style: inherit; font-variant: inherit; font-weight: bold; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; vertical-align: baseline;"><span style="box-sizing: border-box; margin: 0px; padding: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 12pt; line-height: inherit; font-family: inherit; vertical-align: baseline;"><span style="box-sizing: border-box; margin: 0px; padding: 0px; font: inherit; vertical-align: baseline; color: rgb(27, 27, 27);">IV piętro</span></span></strong></span></p>
+            </td>
+            <td style="box-sizing: border-box; margin: 0px; padding: 0.5rem; font: inherit; vertical-align: baseline; width: 482px;">
+                <p style="box-sizing: border-box; margin: 0px 0px 1em; padding: 0px; font: inherit; vertical-align: baseline;"><span style="box-sizing: border-box; margin: 0px; padding: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 11pt; line-height: inherit; font-family: inherit; vertical-align: baseline;"><span style="box-sizing: border-box; margin: 0px; padding: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 12pt; line-height: inherit; font-family: inherit; vertical-align: baseline;">Multispecjalistyczny Covidowy Oddział Zabiegowy</span></span></p>
+            </td>
+        </tr>
+        <tr style="box-sizing: border-box; margin: 0px; padding: 0px; font: inherit; vertical-align: baseline;">
+            <td style="box-sizing: border-box; margin: 0px; padding: 0.5rem; font: inherit; vertical-align: baseline; width: 123px;">
+                <p style="box-sizing: border-box; margin: 0px 0px 1em; padding: 0px; font: inherit; vertical-align: baseline;"><span style="box-sizing: border-box; margin: 0px; padding: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 11pt; line-height: inherit; font-family: inherit; vertical-align: baseline;"><strong style="box-sizing: border-box; margin: 0px; padding: 0px; font-style: inherit; font-variant: inherit; font-weight: bold; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; vertical-align: baseline;"><span style="box-sizing: border-box; margin: 0px; padding: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 12pt; line-height: inherit; font-family: inherit; vertical-align: baseline;"><span style="box-sizing: border-box; margin: 0px; padding: 0px; font: inherit; vertical-align: baseline; color: rgb(27, 27, 27);">V piętro</span></span></strong></span></p>
+            </td>
+            <td style="box-sizing: border-box; margin: 0px; padding: 0.5rem; font: inherit; vertical-align: baseline; width: 482px;">
+                <p style="box-sizing: border-box; margin: 0px 0px 1em; padding: 0px; font: inherit; vertical-align: baseline;"><span style="box-sizing: border-box; margin: 0px; padding: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 11pt; line-height: inherit; font-family: inherit; vertical-align: baseline;"><span style="box-sizing: border-box; margin: 0px; padding: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 12pt; line-height: inherit; font-family: inherit; vertical-align: baseline;"><span style="box-sizing: border-box; margin: 0px; padding: 0px; font: inherit; vertical-align: baseline; background-color: white;"><span style="box-sizing: border-box; margin: 0px; padding: 0px; font: inherit; vertical-align: baseline; color: rgb(27, 27, 27);">Bloki operacyjne</span></span></span></span></p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+  `;
+
+    let A = polygonWithPopup(coordinatesA, html, "red")
     let B = polygonWithPopup(coordinatesB, "Budynek B", "teal")
     let C = polygonWithPopup(coordinatesC, "Budynek C", "green")
     let D = polygonWithPopup(coordinatesD, "Budynek D", "orange")
@@ -501,8 +563,8 @@ let coordinatesE = [
     let G = polygonWithPopup(coordinatesG, "Budynek G", "teal")
     let I = polygonWithPopup(coordinatesI, "Budynek I", "purple")
     let K = polygonWithPopup(coordinatesK, "Budynek K", "green")
-    // let L2 = polygonWithPopup(coordinatesL2, "Budynek L2") 
-    // let L = polygonWithPopup(coordinatesL, "Budynek L")
+    // let L2 = polygonWithPopup(coordinatesL2, "Budynek L2", "red") 
+    // let L = polygonWithPopup(coordinatesL, "Budynek L", "red")
     let O = polygonWithPopup(coordinatesO, "Budynek O", "teal")
     let N = polygonWithPopup(coordinatesN, "Budynek N", "yellow")
     let PG = polygonWithPopup(coordinatesPG, "Pawilon Główny", "blue")
