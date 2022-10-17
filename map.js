@@ -12,7 +12,7 @@ var letterIcon = L.Icon.extend({
     }
 });
 
-
+//Test change
 
 
 function polygonWithIconAndPopup(coordinates, body, color, iconUrl) {
