@@ -6,11 +6,17 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 
+var searchLayer = L.layerGroup().addTo(map);
+//... adding data in searchLayer ...
+map.addControl( new L.Control.Search({layer: searchLayer}) );
+
+
 var letterIcon = L.Icon.extend({
     options: {
         iconSize:     [30, 30]
     }
 });
+
 
 
 
@@ -1349,3 +1355,4 @@ let coordinatesE = [
     var parkingIcon = new letterIcon({iconUrl: "ikony/parking.png"})
 
     L.marker([52.19898, 21.00008], {icon: parkingIcon}).addTo(map)
+

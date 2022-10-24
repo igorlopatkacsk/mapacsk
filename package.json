@@ -1,0 +1,22 @@
+{
+  "name": "mapa-csk",
+  "version": "1.0.0",
+  "description": "Interaktywna mapka szpitalna",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/igorlopatkacsk/mapacsk.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/igorlopatkacsk/mapacsk/issues"
+  },
+  "homepage": "https://github.com/igorlopatkacsk/mapacsk#readme",
+  "dependencies": {
+    "leaflet-search": "^3.0.3"
+  }
+}
