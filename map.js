@@ -4,37 +4,26 @@ var map = L.map('map', {center: [52.19891, 20.99793], zoom: 17})
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© OpenStreetMap',
     maxNativeZoom:19,
-        maxZoom:20
+    maxZoom:20
 }).addTo(map);
-
-
 
 
 var letterIcon = L.Icon.extend({
     options: {
-        iconSize:     [30, 30]
+        iconSize:[30, 30]
     }
 });
 
-
-
 function polygonWithIconAndPopup(coordinates, body, color, iconUrl, title) {
-
     let polygon =L.polygon(coordinates, {color: color}).addTo(map)
-
     var icon = new letterIcon({iconUrl: iconUrl})
-
     let marker = L.marker(polygon.getBounds().getCenter(), {icon: icon, title: title}).addTo(map).bindPopup(body)
-
     return marker
 }
 
 function polygonWithPopup(coordinates, body, color) {
-
     let polygon =L.polygon(coordinates, {color: color}).addTo(map)
-
     polygon.bindPopup(body)
-
     polygon.on('mouseover', function() {
         this.openPopup()
     })
@@ -46,6 +35,9 @@ function polygonWithPopup(coordinates, body, color) {
 function newPolygon(coordinates, color) {
     let polygon = L.polygon(coordinates, {color: color, fillOpacity: 0.05},).addTo(map)
 }
+
+
+//Dane (koordynaty + opisy)
 
 let coordinatesSzpital = [
     [52.1994168,20.997354],
@@ -119,9 +111,7 @@ let coordinatesSzpital = [
 [52.1995203,20.9968955],
 [52.1993999,20.9969534],
 [52.1993708,20.9969673],
-[52.1994168,20.997354]
-]
-
+[52.1994168,20.997354]]
 let coordinatesA = [
     [52.1985314,20.9981275],
     [52.198543,20.9981943],
@@ -138,8 +128,7 @@ let coordinatesA = [
     [52.1989053,20.9980048],
     [52.1988915,20.9980115],
     [52.1988833,20.9979641],
-    [52.1985314,20.9981275]
-]
+    [52.1985314,20.9981275]]
 let opisA = `
 <p></p>
 <summary style="box-sizing: border-box; margin: 0px; padding: 1.7rem 2rem 1.7rem 0px; font-style: inherit; font-variant: inherit; font-weight: bold; font-stretch: inherit; font-size: 1.25rem; line-height: 1.1; font-family: inherit; vertical-align: baseline; cursor: pointer; display: block; color: rgb(0, 82, 165); position: relative;">Budynek&nbsp;A</summary>
@@ -200,9 +189,7 @@ let opisA = `
 </tbody>
 </table>
 `
-
 let coordinatesB = [
-    
     [52.198653,20.9992712],
     [52.1986499,20.9992534],
     [52.1986422,20.99921],
@@ -222,8 +209,7 @@ let coordinatesB = [
     [52.1984959,20.9992811],
     [52.1985127,20.9992734],
     [52.1985226,20.9993305],
-    [52.198653,20.9992712]
-]
+    [52.198653,20.9992712]]
 let opisB = `
 <p></p>
 <summary style="box-sizing: border-box; margin: 0px; padding: 1.7rem 2rem 1.7rem 0px; font-style: inherit; font-variant: inherit; font-weight: bold; font-stretch: inherit; font-size: 1.25rem; line-height: 1.1; font-family: inherit; vertical-align: baseline; cursor: pointer; display: block; color: rgb(0, 82, 165); position: relative;">Budynek&nbsp;B</summary>
@@ -297,7 +283,6 @@ let opisB = `
     </tbody>
 </table>
 `
-
 let coordinatesC = [
     [52.198653,20.9992712],
     [52.1985226,20.9993305],
@@ -307,7 +292,6 @@ let coordinatesC = [
     [52.1990578,20.9994063],
     [52.1990043,20.9991056],
     [52.198653,20.9992712]]
-
 let opisC = `
     <p></p>
 <summary style="box-sizing: border-box; margin: 0px; padding: 1.7rem 2rem 1.7rem 0px; font-style: inherit; font-variant: inherit; font-weight: bold; font-stretch: inherit; font-size: 1.25rem; line-height: 1.1; font-family: inherit; vertical-align: baseline; cursor: pointer; display: block; color: rgb(0, 82, 165); position: relative;">Budynek&nbsp;C</summary>
@@ -334,9 +318,7 @@ let coordinatesC6 = [
 [52.19928, 20.9967],
 [52.19938, 20.99667],
 [52.19942, 20.99664],
-[52.19939, 20.9964]
-]
-
+    [52.19939, 20.9964]]
 let opisC6 = `
 <p></p>
 <summary style=" border-box;margin: 0px;padding: 1.7rem 2rem 1.7rem 0px;font-style: inherit;font-variant: inherit;font-weight: bold;font-stretch: inherit;font-size: 1.25rem;line-height: 1.1;font-family: inherit;vertical-align: baseline;cursor: pointer;display: block;color: rgb(0, 82, 165);position: relative;">Budynek&nbsp;C6</summary>
@@ -373,7 +355,6 @@ let opisC6 = `
     </tbody>
 </table>
 `
-
 let coordinatesD = [
     
     [52.1979248,20.9973242],
@@ -466,8 +447,7 @@ let coordinatesE = [
     [52.1987308,20.9969398],
     [52.1987266,20.9969278],
     [52.1986746,20.9969793],
-    [52.1983625,20.9972853]]
-    
+    [52.1983625,20.9972853]] 
 let opisE = `
     <p></p>
 <summary style=" border-box;margin: 0px;padding: 1.7rem 2rem 1.7rem 0px;font-style: inherit;font-variant: inherit;font-weight: bold;font-stretch: inherit;font-size: 1.25rem;line-height: 1.1;font-family: inherit;vertical-align: baseline;cursor: pointer;display: block;color: rgb(0, 82, 165);position: relative;">Budynek&nbsp;E</summary>
@@ -563,9 +543,7 @@ let coordinatesF = [
     [52.1979553,20.9971284],
     [52.1979248,20.9973242],
     [52.1979091,20.9973173],
-    [52.1978781,20.9975061]]
-    
-
+    [52.1978781,20.9975061]] 
 let opisF = `
     <p></p>
     <summary style="box-sizing: border-box; margin: 0px; padding: 1.7rem 2rem 1.7rem 0px; font-style: inherit; font-variant: inherit; font-weight: bold; font-stretch: inherit; font-size: 1.25rem; line-height: 1.1; font-family: inherit; vertical-align: baseline; cursor: pointer; display: block; color: rgb(0, 82, 165); position: relative;">Budynek&nbsp;F</summary>
@@ -607,8 +585,6 @@ let coordinatesG = [
     [52.1985715,20.9965774],
     [52.1987026,20.9965143],
     [52.1987728,20.9969004]]
-    
-
 let opisG = `
     <p></p>
     <summary style="box-sizing: border-box; margin: 0px; padding: 1.7rem 2rem 1.7rem 0px; font-style: inherit; font-variant: inherit; font-weight: bold; font-stretch: inherit; font-size: 1.25rem; line-height: 1.1; font-family: inherit; vertical-align: baseline; cursor: pointer; display: block; color: rgb(0, 82, 165); position: relative;">Budynek&nbsp;G</summary>
@@ -635,8 +611,6 @@ let coordinatesI = [
     [52.1979127,20.9959372],
     [52.1979809,20.9954184],
     [52.1981105,20.9954637]]
-    
-
 let opisI = `
     <p></p>
     <summary style="box-sizing: border-box; margin: 0px; padding: 1.7rem 2rem 1.7rem 0px; font-style: inherit; font-variant: inherit; font-weight: bold; font-stretch: inherit; font-size: 1.25rem; line-height: 1.1; font-family: inherit; vertical-align: baseline; cursor: pointer; display: block; color: rgb(0, 82, 165); position: relative;">Budynek&nbsp;I</summary>
@@ -685,7 +659,6 @@ let coordinatesK = [
     [52.1986691,20.9943303],
     [52.1986386,20.9943147],
     [52.1986522,20.9942442]]
-
 let opisK = `
     <p></p>
     <summary style="box-sizing: border-box; margin: 0px; padding: 1.7rem 2rem 1.7rem 0px; font-style: inherit; font-variant: inherit; font-weight: bold; font-stretch: inherit; font-size: 1.25rem; line-height: 1.1; font-family: inherit; vertical-align: baseline; cursor: pointer; display: block; color: rgb(0, 82, 165); position: relative;">Budynek&nbsp;K</summary>
@@ -741,7 +714,6 @@ let coordinatesL2 = [
     [52.1988545,20.9972704],
     [52.1987973,20.9971156],
     [52.1987308,20.9969398]] 
-
 let opisL2 = `
     <p></p>
     <summary style="box-sizing: border-box; margin: 0px; padding: 1.7rem 2rem 1.7rem 0px; font-style: inherit; font-variant: inherit; font-weight: bold; font-stretch: inherit; font-size: 1.25rem; line-height: 1.1; font-family: inherit; vertical-align: baseline; cursor: pointer; display: block; color: rgb(0, 82, 165); position: relative;">Budynek&nbsp;Ł2</summary>
@@ -790,12 +762,10 @@ let coordinatesL = [
     [52.1983433,20.9975619],
     [52.1982902,20.9974153],
     [52.1982413,20.9974547]]
-    
-
-    let opisL = `
+let opisL = `
     <p><span style='color: rgb(0, 82, 165); font-family: "Open Sans", sans-serif; font-size: 20px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 700; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;'>Budynek L</span></p>
 `
-    let coordinatesO = [
+let coordinatesO = [
     
     [52.1996109,20.9959491],
     [52.1997189,20.9958997],
@@ -806,15 +776,13 @@ let coordinatesL = [
     [52.1996523,20.9963636],
     [52.1996803,20.9963504],
     [52.1996109,20.9959491]]
-    
-
-    let opisO = `
+let opisO = `
     <p></p>
     <summary style="box-sizing: border-box; margin: 0px; padding: 1.7rem 2rem 1.7rem 0px; font-style: inherit; font-variant: inherit; font-weight: bold; font-stretch: inherit; font-size: 1.25rem; line-height: 1.1; font-family: inherit; vertical-align: baseline; cursor: pointer; display: block; color: rgb(0, 82, 165); position: relative;">Budynek&nbsp;O</summary>
     <p></p>
     <p style="box-sizing: border-box; margin: 0px 0px 1em; padding: 0px; font: inherit; vertical-align: baseline;">Mazowieckie Centrum Terapii Hiperbarycznej i Leczenia Ran</p>
 `
-    let coordinatesN = [
+let coordinatesN = [
     
     [52.1982163,20.9949538],
     [52.1982802,20.9946254],
@@ -843,9 +811,7 @@ let coordinatesL = [
     [52.1982722,20.9949825],
     [52.1982707,20.9949818],
     [52.1982163,20.9949538]]
-    
-
-    let opisN = `
+let opisN = `
     <p></p>
     <summary style=" border-box;margin: 0px;padding: 1.7rem 2rem 1.7rem 0px;font-style: inherit;font-variant: inherit;font-weight: bold;font-stretch: inherit;font-size: 1.25rem;line-height: 1.1;font-family: inherit;vertical-align: baseline;cursor: pointer;display: block;color: rgb(0, 82, 165);position: relative;">Budynek&nbsp;N</summary>
     <p></p>
@@ -881,7 +847,7 @@ let coordinatesL = [
         </tbody>
     </table>
 `
-    let coordinatesPG = [
+let coordinatesPG = [
     
     [52.199135,20.9980663],
     [52.1991811,20.9983219],
@@ -928,9 +894,7 @@ let coordinatesL = [
     [52.1991172,20.9979643],
     [52.1991263,20.9980133],
     [52.199135,20.9980663]]
-    
-
-    let opisPG = `
+let opisPG = `
     <summary style="box-sizing: border-box; margin: 0px; padding: 1.7rem 2rem 1.7rem 0px; font-style: inherit; font-variant: inherit; font-weight: bold; font-stretch: inherit; font-size: 1.25rem; line-height: 1.1; font-family: inherit; vertical-align: baseline; cursor: pointer; display: block; color: rgb(0, 82, 165); position: relative;">Budynek&nbsp;PG&nbsp;(Pawilon&nbsp;Gł&oacute;wny)</summary>
     <p style="box-sizing: border-box; margin: 0px 0px 1em; padding: 0px; font: inherit; vertical-align: baseline;">&nbsp;</p>
     <table cellspacing="0" class="Table" style="box-sizing: border-box; margin: 0px; padding: 0px; font: inherit; vertical-align: baseline; border-collapse: collapse; border-spacing: 0px;">
@@ -1016,7 +980,7 @@ let coordinatesL = [
         </tbody>
     </table>
 `
-    let coordinatesR = [
+let coordinatesR = [
     
     [52.1990994,20.996413],
     [52.1990512,20.9964356],
@@ -1025,9 +989,7 @@ let coordinatesL = [
     [52.1991276,20.9967087],
     [52.1991496,20.9966984],
     [52.1990994,20.996413]]
-    
-
-    let opisR = `
+let opisR = `
     <p></p>
     <summary style="box-sizing: border-box; margin: 0px; padding: 1.7rem 2rem 1.7rem 0px; font-style: inherit; font-variant: inherit; font-weight: bold; font-stretch: inherit; font-size: 1.25rem; line-height: 1.1; font-family: inherit; vertical-align: baseline; cursor: pointer; display: block; color: rgb(0, 82, 165); position: relative;">Budynek&nbsp;R</summary>
     <p></p>
@@ -1055,7 +1017,7 @@ let coordinatesL = [
         </tbody>
     </table>
 `
-    let coordinatesS = [
+let coordinatesS = [
     
     [52.2006964,20.9963948],
     [52.2007311,20.9965875],
@@ -1080,9 +1042,7 @@ let coordinatesL = [
     [52.2002672,20.9964158],
     [52.2002961,20.9965796],
     [52.2006964,20.9963948]]
-    
-
-    let opisS = `
+let opisS = `
     <p></p>
     <summary style="box-sizing: border-box; margin: 0px; padding: 1.7rem 2rem 1.7rem 0px; font-style: inherit; font-variant: inherit; font-weight: bold; font-stretch: inherit; font-size: 1.25rem; line-height: 1.1; font-family: inherit; vertical-align: baseline; cursor: pointer; display: block; color: rgb(0, 82, 165); position: relative;">Budynek&nbsp;S</summary>
     <p></p>
@@ -1132,7 +1092,7 @@ let coordinatesL = [
         </tbody>
     </table>
 `
-    let coordinatesU = [
+let coordinatesU = [
     
     [52.1991748,20.9978893],
     [52.1992341,20.9978627],
@@ -1165,9 +1125,7 @@ let coordinatesL = [
     [52.1991808,20.9978953],
     [52.1991763,20.9978976],
     [52.1991748,20.9978893]]
-    
-
-    let opisU = `
+let opisU = `
     <p></p>
     <summary style="box-sizing: border-box; margin: 0px; padding: 1.7rem 2rem 1.7rem 0px; font-style: inherit; font-variant: inherit; font-weight: bold; font-stretch: inherit; font-size: 1.25rem; line-height: 1.1; font-family: inherit; vertical-align: baseline; cursor: pointer; display: block; color: rgb(0, 82, 165); position: relative;">Budynek&nbsp;U</summary>
     <p></p>
@@ -1195,7 +1153,7 @@ let coordinatesL = [
         </tbody>
     </table>
 `
-    let coordinatesH = [
+let coordinatesH = [
     
     [52.2006036,20.9959783],
     [52.200637,20.9961607],
@@ -1207,9 +1165,7 @@ let coordinatesL = [
     [52.2006007,20.9959737],
     [52.2006025,20.9959728],
     [52.2006036,20.9959783]]
-    
-
-    let opisH = `
+let opisH = `
     <p></p>
     <summary style=" border-box;margin: 0px;padding: 1.7rem 2rem 1.7rem 0px;font-style: inherit;font-variant: inherit;font-weight: bold;font-stretch: inherit;font-size: 1.25rem;line-height: 1.1;font-family: inherit;vertical-align: baseline;cursor: pointer;display: block;color: rgb(0, 82, 165);position: relative;">Budynek&nbsp;H</summary>
     <p></p>
@@ -1227,7 +1183,7 @@ let coordinatesL = [
         </tbody>
     </table>
 `
-    let coordinatesPI = [
+let coordinatesPI = [
     [52.1987154,21.0002502],
     [52.1987653,21.0005535],
     [52.1987048,21.0005732],
@@ -1239,12 +1195,9 @@ let coordinatesL = [
     [52.1986793,21.0003815],
     [52.1986635,21.0002687],
     [52.1987154,21.0002502]]
-
-
-    let opisPI = `
-
+let opisPI = `
 `
-    let coordinatesAG = [
+let coordinatesAG = [
     [52.1991083,20.9985921],
     [52.1991771,20.9985578],
     [52.1992103,20.9987429],
@@ -1267,8 +1220,7 @@ let coordinatesL = [
     [52.1990672,20.9985665],
     [52.1990747,20.998608],
     [52.1991083,20.9985921]]
-
-    let opisAG = `
+let opisAG = `
     <p></p>
     <summary style="box-sizing: border-box; margin: 0px; padding: 1.7rem 2rem 1.7rem 0px; font-style: inherit; font-variant: inherit; font-weight: bold; font-stretch: inherit; font-size: 1.25rem; line-height: 1.1; font-family: inherit; vertical-align: baseline; cursor: pointer; display: block; color: rgb(0, 82, 165); position: relative;">Budynek &nbsp;AG Administracyjno-Garażowy</summary>
     <p></p>
@@ -1316,9 +1268,8 @@ let coordinatesL = [
     `
 
 
-
-
-  let szpital = newPolygon(coordinatesSzpital, "#2a6c9f")
+    // Objekty na mapie
+    let szpital = newPolygon(coordinatesSzpital, "#2a6c9f")
     let A = polygonWithIconAndPopup(coordinatesA, opisA, "#054494", "ikony/A.png", "Budynek A")
     let B = polygonWithIconAndPopup(coordinatesB, opisB, "#006a95", "ikony/B.png", "Budynek B")
     let C = polygonWithIconAndPopup(coordinatesC, opisC, "#196133", "ikony/C.png", "Budynek C")
@@ -1340,14 +1291,11 @@ let coordinatesL = [
     let H = polygonWithIconAndPopup(coordinatesH, opisH, "#b12826", "ikony/H.png", "Budynek H")
     let PI = polygonWithIconAndPopup(coordinatesPI, opisPI, "#0091ca", "ikony/PIK.png", "Punkt Informacyjny")
     let AG = polygonWithIconAndPopup(coordinatesAG, opisAG, "#f5b3b4", "ikony/AG.png", "Budynek Administracyjno-Garażowy")
-
     var parkingIcon = new letterIcon({iconUrl: "ikony/parking.png"})
-
     L.marker([52.19898, 21.00008], {icon: parkingIcon}).addTo(map);
 
 
 
+    // Wyszukiwarka 
     var searchLayer = L.layerGroup([A, B, C, C6, D , E, F, G, I, K, drugaelka, elka, O, N, PG, R, S, U, H, PI, AG]).addTo(map);
-    
-
     map.addControl( new L.Control.Search({layer: searchLayer}) );
