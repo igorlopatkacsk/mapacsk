@@ -2,13 +2,12 @@ var map = L.map('map', {center: [52.19891, 20.99793], zoom: 17})
 // .setView([52.19891, 20.99793], 18);
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '© OpenStreetMap'
+    attribution: '© OpenStreetMap',
+    maxNativeZoom:19,
+        maxZoom:20
 }).addTo(map);
 
 
-var searchLayer = L.layerGroup().addTo(map);
-//... adding data in searchLayer ...
-map.addControl( new L.Control.Search({layer: searchLayer}) );
 
 
 var letterIcon = L.Icon.extend({
@@ -17,18 +16,17 @@ var letterIcon = L.Icon.extend({
     }
 });
 
-//Test change
 
 
-
-function polygonWithIconAndPopup(coordinates, body, color, iconUrl) {
+function polygonWithIconAndPopup(coordinates, body, color, iconUrl, title) {
 
     let polygon =L.polygon(coordinates, {color: color}).addTo(map)
 
     var icon = new letterIcon({iconUrl: iconUrl})
 
-    L.marker(polygon.getBounds().getCenter(), {icon: icon}).addTo(map).bindPopup(body)
+    let marker = L.marker(polygon.getBounds().getCenter(), {icon: icon, title: title}).addTo(map).bindPopup(body)
 
+    return marker
 }
 
 function polygonWithPopup(coordinates, body, color) {
@@ -142,7 +140,6 @@ let coordinatesA = [
     [52.1988833,20.9979641],
     [52.1985314,20.9981275]
 ]
-
 let opisA = `
 <p></p>
 <summary style="box-sizing: border-box; margin: 0px; padding: 1.7rem 2rem 1.7rem 0px; font-style: inherit; font-variant: inherit; font-weight: bold; font-stretch: inherit; font-size: 1.25rem; line-height: 1.1; font-family: inherit; vertical-align: baseline; cursor: pointer; display: block; color: rgb(0, 82, 165); position: relative;">Budynek&nbsp;A</summary>
@@ -204,7 +201,6 @@ let opisA = `
 </table>
 `
 
-
 let coordinatesB = [
     
     [52.198653,20.9992712],
@@ -228,7 +224,6 @@ let coordinatesB = [
     [52.1985226,20.9993305],
     [52.198653,20.9992712]
 ]
-
 let opisB = `
 <p></p>
 <summary style="box-sizing: border-box; margin: 0px; padding: 1.7rem 2rem 1.7rem 0px; font-style: inherit; font-variant: inherit; font-weight: bold; font-stretch: inherit; font-size: 1.25rem; line-height: 1.1; font-family: inherit; vertical-align: baseline; cursor: pointer; display: block; color: rgb(0, 82, 165); position: relative;">Budynek&nbsp;B</summary>
@@ -304,7 +299,6 @@ let opisB = `
 `
 
 let coordinatesC = [
-    
     [52.198653,20.9992712],
     [52.1985226,20.9993305],
     [52.1983977,20.9993881],
@@ -314,8 +308,7 @@ let coordinatesC = [
     [52.1990043,20.9991056],
     [52.198653,20.9992712]]
 
-
-    let opisC = `
+let opisC = `
     <p></p>
 <summary style="box-sizing: border-box; margin: 0px; padding: 1.7rem 2rem 1.7rem 0px; font-style: inherit; font-variant: inherit; font-weight: bold; font-stretch: inherit; font-size: 1.25rem; line-height: 1.1; font-family: inherit; vertical-align: baseline; cursor: pointer; display: block; color: rgb(0, 82, 165); position: relative;">Budynek&nbsp;C</summary>
 <p></p>
@@ -336,7 +329,6 @@ let coordinatesC = [
     </tbody>
 </table>
 `
-
 let coordinatesC6 = [
     [52.19925, 20.99642],
 [52.19928, 20.9967],
@@ -382,7 +374,6 @@ let opisC6 = `
 </table>
 `
 
-
 let coordinatesD = [
     
     [52.1979248,20.9973242],
@@ -396,9 +387,7 @@ let coordinatesD = [
     [52.1981192,20.9974048],
     [52.1979992,20.9973557],
     [52.1979248,20.9973242]]
-    
-
-    let opisD = `
+let opisD = `
     <p></p>
 <summary style="box-sizing: border-box; margin: 0px; padding: 1.7rem 2rem 1.7rem 0px; font-style: inherit; font-variant: inherit; font-weight: bold; font-stretch: inherit; font-size: 1.25rem; line-height: 1.1; font-family: inherit; vertical-align: baseline; cursor: pointer; display: block; color: rgb(0, 82, 165); position: relative;">Budynek&nbsp;D</summary>
 <p></p>
@@ -479,8 +468,7 @@ let coordinatesE = [
     [52.1986746,20.9969793],
     [52.1983625,20.9972853]]
     
-
-    let opisE = `
+let opisE = `
     <p></p>
 <summary style=" border-box;margin: 0px;padding: 1.7rem 2rem 1.7rem 0px;font-style: inherit;font-variant: inherit;font-weight: bold;font-stretch: inherit;font-size: 1.25rem;line-height: 1.1;font-family: inherit;vertical-align: baseline;cursor: pointer;display: block;color: rgb(0, 82, 165);position: relative;">Budynek&nbsp;E</summary>
 <p></p>
@@ -553,7 +541,7 @@ let coordinatesE = [
     </tbody>
 </table>
 `
-    let coordinatesF = [
+let coordinatesF = [
     
     [52.1978781,20.9975061],
     [52.1978138,20.9974796],
@@ -578,7 +566,7 @@ let coordinatesE = [
     [52.1978781,20.9975061]]
     
 
-    let opisF = `
+let opisF = `
     <p></p>
     <summary style="box-sizing: border-box; margin: 0px; padding: 1.7rem 2rem 1.7rem 0px; font-style: inherit; font-variant: inherit; font-weight: bold; font-stretch: inherit; font-size: 1.25rem; line-height: 1.1; font-family: inherit; vertical-align: baseline; cursor: pointer; display: block; color: rgb(0, 82, 165); position: relative;">Budynek&nbsp;F</summary>
     <p></p>
@@ -604,7 +592,7 @@ let coordinatesE = [
         </tbody>
     </table>
 `
-    let coordinatesG = [
+let coordinatesG = [
     
     [52.1987728,20.9969004],
     [52.1987308,20.9969398],
@@ -621,7 +609,7 @@ let coordinatesE = [
     [52.1987728,20.9969004]]
     
 
-    let opisG = `
+let opisG = `
     <p></p>
     <summary style="box-sizing: border-box; margin: 0px; padding: 1.7rem 2rem 1.7rem 0px; font-style: inherit; font-variant: inherit; font-weight: bold; font-stretch: inherit; font-size: 1.25rem; line-height: 1.1; font-family: inherit; vertical-align: baseline; cursor: pointer; display: block; color: rgb(0, 82, 165); position: relative;">Budynek&nbsp;G</summary>
     <p></p>
@@ -639,7 +627,7 @@ let coordinatesE = [
         </tbody>
     </table>
 `
-    let coordinatesI = [
+let coordinatesI = [
     
     [52.1981105,20.9954637],
     [52.1980192,20.9961595],
@@ -649,7 +637,7 @@ let coordinatesE = [
     [52.1981105,20.9954637]]
     
 
-    let opisI = `
+let opisI = `
     <p></p>
     <summary style="box-sizing: border-box; margin: 0px; padding: 1.7rem 2rem 1.7rem 0px; font-style: inherit; font-variant: inherit; font-weight: bold; font-stretch: inherit; font-size: 1.25rem; line-height: 1.1; font-family: inherit; vertical-align: baseline; cursor: pointer; display: block; color: rgb(0, 82, 165); position: relative;">Budynek&nbsp;I</summary>
     <p></p>
@@ -678,7 +666,7 @@ let coordinatesE = [
         </tbody>
     </table>
 `
-    let coordinatesK = [
+let coordinatesK = [
     
     [52.1986522,20.9942442],
     [52.1983157,20.9940721],
@@ -697,9 +685,8 @@ let coordinatesE = [
     [52.1986691,20.9943303],
     [52.1986386,20.9943147],
     [52.1986522,20.9942442]]
-    
 
-    let opisK = `
+let opisK = `
     <p></p>
     <summary style="box-sizing: border-box; margin: 0px; padding: 1.7rem 2rem 1.7rem 0px; font-style: inherit; font-variant: inherit; font-weight: bold; font-stretch: inherit; font-size: 1.25rem; line-height: 1.1; font-family: inherit; vertical-align: baseline; cursor: pointer; display: block; color: rgb(0, 82, 165); position: relative;">Budynek&nbsp;K</summary>
     <p></p>
@@ -736,7 +723,7 @@ let coordinatesE = [
         </tbody>
     </table>
 `
-    let coordinatesL2 = [
+let coordinatesL2 = [
     
     [52.1987308,20.9969398],
     [52.1987728,20.9969004],
@@ -753,10 +740,9 @@ let coordinatesE = [
     [52.1988426,20.9972819],
     [52.1988545,20.9972704],
     [52.1987973,20.9971156],
-    [52.1987308,20.9969398]]
-    
+    [52.1987308,20.9969398]] 
 
-    let opisL2 = `
+let opisL2 = `
     <p></p>
     <summary style="box-sizing: border-box; margin: 0px; padding: 1.7rem 2rem 1.7rem 0px; font-style: inherit; font-variant: inherit; font-weight: bold; font-stretch: inherit; font-size: 1.25rem; line-height: 1.1; font-family: inherit; vertical-align: baseline; cursor: pointer; display: block; color: rgb(0, 82, 165); position: relative;">Budynek&nbsp;Ł2</summary>
     <p></p>
@@ -793,7 +779,7 @@ let coordinatesE = [
         </tbody>
     </table>
 `
-    let coordinatesL = [
+let coordinatesL = [
     
     [52.1982413,20.9974547],
     [52.198212,20.9976679],
@@ -1329,30 +1315,39 @@ let coordinatesE = [
     </table>
     `
 
+
+
+
   let szpital = newPolygon(coordinatesSzpital, "#2a6c9f")
-    let A = polygonWithIconAndPopup(coordinatesA, opisA, "#054494", "ikony/A.png")
-    let B = polygonWithIconAndPopup(coordinatesB, opisB, "#006a95", "ikony/B.png")
-    let C = polygonWithIconAndPopup(coordinatesC, opisC, "#196133", "ikony/C.png")
-    let C6 = polygonWithIconAndPopup(coordinatesC6, opisC6, "#ead114", "ikony/C6.png" )
-    let D = polygonWithIconAndPopup(coordinatesD, opisD, "#d55b19", "ikony/D.png")
-    let E = polygonWithIconAndPopup(coordinatesE, opisE, "#ee7e01", "ikony/E.png")
-    let F = polygonWithIconAndPopup(coordinatesF, opisF, "#c9cd6b", "ikony/F.png")
-    let G = polygonWithIconAndPopup(coordinatesG, opisG, "#007fa7", "ikony/G.png")
-    let I = polygonWithIconAndPopup(coordinatesI, opisI, "#d172a2", "ikony/I.png")
-    let K = polygonWithIconAndPopup(coordinatesK, opisK, "#009036", "ikony/K.png")
-    let drugaelka = polygonWithIconAndPopup(coordinatesL2, opisL2, "#f1a543", "ikony/Ł2.png") 
-    let elka = polygonWithIconAndPopup(coordinatesL, opisL, "#009de0", "ikony/Ł.png")
-    let O = polygonWithIconAndPopup(coordinatesO, opisO, "#016a93", "ikony/O.png")
-    let N = polygonWithIconAndPopup(coordinatesN, opisN, "#e69153", "ikony/Nż.png")
-    let PG = polygonWithIconAndPopup(coordinatesPG, opisPG, "#e42c2a", "ikony/PG.png")
-    let R = polygonWithIconAndPopup(coordinatesR, opisR, "#935a3e", "ikony/R.png")
-    let S = polygonWithIconAndPopup(coordinatesS, opisS, "#e17717", "ikony/S.png")
-    let U = polygonWithIconAndPopup(coordinatesU, opisU, "#f37d02", "ikony/U.png")
-    let H = polygonWithIconAndPopup(coordinatesH, opisH, "#b12826", "ikony/H.png")
-    let PI = polygonWithIconAndPopup(coordinatesPI, opisPI, "#0091ca", "ikony/PIK.png")
-    let AG = polygonWithIconAndPopup(coordinatesAG, opisAG, "#f5b3b4", "ikony/AG.png")
+    let A = polygonWithIconAndPopup(coordinatesA, opisA, "#054494", "ikony/A.png", "Budynek A")
+    let B = polygonWithIconAndPopup(coordinatesB, opisB, "#006a95", "ikony/B.png", "Budynek B")
+    let C = polygonWithIconAndPopup(coordinatesC, opisC, "#196133", "ikony/C.png", "Budynek C")
+    let C6 = polygonWithIconAndPopup(coordinatesC6, opisC6, "#ead114", "ikony/C6.png", "Budynek C6")
+    let D = polygonWithIconAndPopup(coordinatesD, opisD, "#d55b19", "ikony/D.png", "Budynek D")
+    let E = polygonWithIconAndPopup(coordinatesE, opisE, "#ee7e01", "ikony/E.png", "Budynek E")
+    let F = polygonWithIconAndPopup(coordinatesF, opisF, "#c9cd6b", "ikony/F.png", "Budynek F")
+    let G = polygonWithIconAndPopup(coordinatesG, opisG, "#007fa7", "ikony/G.png", "Budynek G")
+    let I = polygonWithIconAndPopup(coordinatesI, opisI, "#d172a2", "ikony/I.png", "Budynek I")
+    let K = polygonWithIconAndPopup(coordinatesK, opisK, "#009036", "ikony/K.png", "Budynek K")
+    let drugaelka = polygonWithIconAndPopup(coordinatesL2, opisL2, "#f1a543", "ikony/Ł2.png", "Budynek Ł2") 
+    let elka = polygonWithIconAndPopup(coordinatesL, opisL, "#009de0", "ikony/Ł.png", "Budynek Ł")
+    let O = polygonWithIconAndPopup(coordinatesO, opisO, "#016a93", "ikony/O.png", "Budynek O")
+    let N = polygonWithIconAndPopup(coordinatesN, opisN, "#e69153", "ikony/Nż.png", "Budynek N")
+    let PG = polygonWithIconAndPopup(coordinatesPG, opisPG, "#e42c2a", "ikony/PG.png", "Pawilon Główny")
+    let R = polygonWithIconAndPopup(coordinatesR, opisR, "#935a3e", "ikony/R.png", "Budynek R")
+    let S = polygonWithIconAndPopup(coordinatesS, opisS, "#e17717", "ikony/S.png", "Budynek S")
+    let U = polygonWithIconAndPopup(coordinatesU, opisU, "#f37d02", "ikony/U.png", "Budynek U")
+    let H = polygonWithIconAndPopup(coordinatesH, opisH, "#b12826", "ikony/H.png", "Budynek H")
+    let PI = polygonWithIconAndPopup(coordinatesPI, opisPI, "#0091ca", "ikony/PIK.png", "Punkt Informacyjny")
+    let AG = polygonWithIconAndPopup(coordinatesAG, opisAG, "#f5b3b4", "ikony/AG.png", "Budynek Administracyjno-Garażowy")
 
     var parkingIcon = new letterIcon({iconUrl: "ikony/parking.png"})
 
-    L.marker([52.19898, 21.00008], {icon: parkingIcon}).addTo(map)
+    L.marker([52.19898, 21.00008], {icon: parkingIcon}).addTo(map);
 
+
+
+    var searchLayer = L.layerGroup([A, B, C, C6, D , E, F, G, I, K, drugaelka, elka, O, N, PG, R, S, U, H, PI, AG]).addTo(map);
+    
+
+    map.addControl( new L.Control.Search({layer: searchLayer}) );
